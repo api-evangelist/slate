@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apievangelist.com/schemas/slate/slate-frontmatter.json",
+  "title": "Slate Frontmatter Configuration",
+  "description": "YAML frontmatter configuration for Slate API documentation pages. Slate is a static site generator for beautiful three-panel API documentation written in Markdown. The frontmatter in each index.html.md file controls the page title, language tabs, table of contents, included files, search behavior, meta tags, and other display options.",
+  "type": "object",
+  "required": ["title"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the API documentation page, displayed in the browser tab and page header.",
+      "minLength": 1,
+      "examples": ["API Reference", "Kittn API Documentation"]
+    },
+    "language_tabs": {
+      "type": "array",
+      "description": "List of programming languages for which code samples are shown as switchable tabs in the right panel. Must be valid Rouge lexer names (see https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers).",
+      "items": {
+        "$ref": "#/$defs/LanguageTab"
+      },
+      "minItems": 1,
+      "examples": [
+        ["shell", "ruby", "python", "javascript"],
+        [{"shell": "cURL"}, {"javascript": "JS"}]
+      ]
+    },
+    "toc_footers": {
+      "type": "array",
+      "description": "HTML anchor elements or plain text strings displayed at the bottom of the table of contents sidebar.",
+      "items": {
+        "type": "string",
+        "description": "An HTML string or plain text entry shown in the TOC footer area."
+      },
+      "examples": [
+        ["<a href='#'>Sign Up for a Developer Key</a>", "<a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>"]
+      ]
+    },
+    "includes": {
+      "type": "array",
+      "description": "List of Markdown include file names (without extension) to be concatenated into the documentation page. Files must exist in the source/includes/ directory.",
+      "items": {
+        "type": "string",
+        "description": "The filename (without extension) of a Markdown file in the includes/ directory.",
+        "pattern": "^[a-zA-Z0-9_-]+$"
+      },
+      "examples": [
+        ["errors", "authentication", "pagination"]
+      ]
+    },
+    "search": {
+      "type": "boolean",
+      "description": "Whether to enable the full-text search functionality in the documentation sidebar. When true, a search box appears above the table of contents.",
+      "default": false
+    },
+    "code_clipboard": {
+      "type": "boolean",
+      "description": "Whether to enable copy-to-clipboard buttons on code sample blocks in the right panel.",
+      "default": false
+    },
+    "highlight_theme": {
+      "type": "string",
+      "description": "The syntax highlighting theme to use for code blocks. Slate uses Rouge for syntax highlighting.",
+      "examples": ["monokai_sublime"]
+    },
+    "meta": {
+      "type": "array",
+      "description": "List of HTML meta tag definitions to be injected into the documentation page head element for SEO and social sharing.",
+      "items": {
+        "$ref": "#/$defs/MetaTag"
+      },
+      "examples": [
+        [{"name": "description", "content": "Documentation for the Example API"}]
+      ]
+    },
+    "logo": {
+      "$ref": "#/$defs/LogoConfig",
+      "description": "Optional logo image configuration for the sidebar."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "LanguageTab": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "A Rouge lexer identifier used as both the tab identifier and display label.",
+          "minLength": 1,
+          "examples": ["shell", "ruby", "python", "javascript", "java", "go", "csharp", "php"]
+        },
+        {
+          "type": "object",
+          "description": "A mapping of a Rouge lexer identifier to a custom display label for the tab.",
+          "minProperties": 1,
+          "maxProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "description": "The human-readable display label for this language tab.",
+            "minLength": 1
+          },
+          "examples": [
+            {"shell": "cURL"},
+            {"javascript": "Node.js"},
+            {"csharp": "C#"}
+          ]
+        }
+      ],
+      "description": "A language tab entry, either a plain Rouge lexer name or a mapping from lexer name to display label."
+    },
+    "MetaTag": {
+      "type": "object",
+      "description": "An HTML meta tag to be injected into the documentation page head.",
+      "required": ["name", "content"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name attribute of the HTML meta tag.",
+          "examples": ["description", "keywords", "author", "robots"]
+        },
+        "content": {
+          "type": "string",
+          "description": "The content attribute of the HTML meta tag."
+        }
+      },
+      "additionalProperties": false
+    },
+    "LogoConfig": {
+      "type": "object",
+      "description": "Logo image configuration for display in the documentation sidebar.",
+      "required": ["image"],
+      "properties": {
+        "image": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL or relative path to the logo image file."
+        },
+        "link": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional URL to navigate to when the logo is clicked."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
