@@ -5,10 +5,10 @@ apis:
   - aid: slate:slate
     name: Slate
     tags:
+      - API Documentation
       - Documentation
       - Markdown
       - Static Site Generator
-      - API Documentation
     humanURL: https://github.com/slatedocs/slate
     properties:
       - url: https://github.com/slatedocs/slate
@@ -30,12 +30,12 @@ apis:
       and code samples in the right panel.
 name: Slate
 tags:
-  - Documentation
-  - Markdown
-  - Static Site Generator
   - API Documentation
   - Developer Tools
+  - Documentation
+  - Markdown
   - Ruby
+  - Static Site Generator
   - Three-Panel
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -91,8 +91,7 @@ common:
     type: Customers
   - name: Rouge Supported Languages
     description: 'null'
-    url: 
-      https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
+    url: https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
     type: Reference
   - name: Slate npm Package (slate-tools)
     description: 'null'
