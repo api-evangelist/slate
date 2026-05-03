@@ -21,6 +21,12 @@ apis:
         type: JSONSchema
       - url: json-ld/slate-context.jsonld
         type: JSON-LD
+      - url: json-structure/slate-frontmatter-structure.json
+        type: JSONStructure
+      - url: examples/slate-frontmatter-example.json
+        type: Example
+      - url: vocabulary/slate-vocabulary.yml
+        type: Vocabulary
     description: >-
       Slate is an open-source static site generator for creating beautiful, three-panel
       API documentation from Markdown files. Originally created by Robert Lord in
@@ -41,7 +47,7 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2026-03-18'
-modified: '2026-03-18'
+modified: '2026-05-02'
 position: Consumer
 segments:
   - Documentation
@@ -109,3 +115,23 @@ common:
     description: 'null'
     url: https://github.com/slatedocs/slate/blob/main/CHANGELOG.md
     type: Changelog
+  - name: Slate Frontmatter JSON Schema
+    description: JSON Schema for Slate frontmatter configuration
+    url: json-schema/slate-frontmatter-schema.json
+    type: JSONSchema
+  - name: Slate JSON-LD Context
+    description: JSON-LD context for Slate documentation entities
+    url: json-ld/slate-context.jsonld
+    type: JSON-LD
+  - name: Slate Frontmatter Structure
+    description: JSON Structure for Slate frontmatter fields
+    url: json-structure/slate-frontmatter-structure.json
+    type: JSONStructure
+  - name: Slate Frontmatter Example
+    description: Example frontmatter configuration
+    url: examples/slate-frontmatter-example.json
+    type: Example
+  - name: Slate Vocabulary
+    description: Domain vocabulary for Slate documentation concepts
+    url: vocabulary/slate-vocabulary.yml
+    type: Vocabulary

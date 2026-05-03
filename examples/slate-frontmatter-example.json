@@ -1,0 +1,35 @@
+{
+  "description": "Example Slate frontmatter configuration for a three-panel API documentation site",
+  "frontmatter": {
+    "title": "Petstore API Reference",
+    "language_tabs": [
+      {"shell": "cURL"},
+      {"python": "Python"},
+      {"javascript": "JavaScript"},
+      {"ruby": "Ruby"}
+    ],
+    "toc_footers": [
+      "<a href='https://petstore.example.com/signup'>Sign Up for a Developer Key</a>",
+      "<a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>"
+    ],
+    "includes": [
+      "errors",
+      "authentication",
+      "pagination"
+    ],
+    "search": true,
+    "code_clipboard": true,
+    "highlight_theme": "monokai_sublime",
+    "meta": [
+      {
+        "name": "description",
+        "content": "API Reference documentation for the Petstore API"
+      },
+      {
+        "name": "keywords",
+        "content": "api, petstore, rest, documentation"
+      }
+    ]
+  },
+  "notes": "Save as source/index.html.md in your Slate project. Run 'bundle exec middleman build' to generate static HTML."
+}

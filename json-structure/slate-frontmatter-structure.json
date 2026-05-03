@@ -1,0 +1,102 @@
+{
+  "name": "Slate Frontmatter Configuration",
+  "description": "Structure documentation for the YAML frontmatter in Slate API documentation pages (index.html.md). Controls page title, language tabs, table of contents, search, and meta tags.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Page title displayed in browser tab and page header",
+      "example": "API Reference"
+    },
+    {
+      "name": "language_tabs",
+      "type": "array",
+      "required": false,
+      "description": "Programming language tabs for code samples in the right panel. Items are Rouge lexer names (string) or {lexer: label} objects.",
+      "itemType": "string | object",
+      "example": [{"shell": "cURL"}, "python", "javascript"]
+    },
+    {
+      "name": "toc_footers",
+      "type": "array",
+      "required": false,
+      "description": "HTML links or text displayed at the bottom of the navigation sidebar",
+      "itemType": "string (HTML)",
+      "example": ["<a href='/signup'>Get API Key</a>"]
+    },
+    {
+      "name": "includes",
+      "type": "array",
+      "required": false,
+      "description": "Markdown include file names (without extension) from source/includes/ to concatenate into the page",
+      "itemType": "string",
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "example": ["errors", "authentication", "pagination"]
+    },
+    {
+      "name": "search",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "Enable full-text search in the documentation sidebar"
+    },
+    {
+      "name": "code_clipboard",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "Show copy-to-clipboard buttons on code blocks"
+    },
+    {
+      "name": "highlight_theme",
+      "type": "string",
+      "required": false,
+      "description": "Rouge syntax highlighting theme name",
+      "example": "monokai_sublime"
+    },
+    {
+      "name": "meta",
+      "type": "array",
+      "required": false,
+      "description": "HTML meta tags to inject into the page head for SEO",
+      "itemType": "object",
+      "itemFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Meta tag name attribute",
+          "example": "description"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "description": "Meta tag content attribute"
+        }
+      ]
+    },
+    {
+      "name": "logo",
+      "type": "object",
+      "required": false,
+      "description": "Sidebar logo configuration",
+      "fields": [
+        {
+          "name": "image",
+          "type": "string (uri)",
+          "required": true,
+          "description": "URL or path to the logo image"
+        },
+        {
+          "name": "link",
+          "type": "string (uri)",
+          "required": false,
+          "description": "URL to navigate to when logo is clicked"
+        }
+      ]
+    }
+  ]
+}

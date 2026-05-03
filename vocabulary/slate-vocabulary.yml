@@ -1,0 +1,193 @@
+vocabulary:
+  name: Slate Vocabulary
+  description: >-
+    Domain vocabulary for Slate, the open-source static site generator for
+    creating beautiful three-panel API documentation from Markdown files.
+    Covers Slate's configuration, rendering, deployment, and documentation
+    authoring concepts.
+  created: '2026-05-02'
+  modified: '2026-05-02'
+  tags:
+    - API Documentation
+    - Developer Tools
+    - Documentation
+    - Markdown
+    - Ruby
+    - Static Site Generator
+
+terms:
+  # Core Architecture
+  - term: Three-Panel Layout
+    definition: >-
+      Slate's distinctive documentation layout with three vertical sections:
+      a left-side navigation sidebar with table of contents, a center panel
+      for API descriptions and prose, and a right-side dark panel for code
+      samples. Inspired by Stripe's and PayPal's original API documentation designs.
+    tags:
+      - Layout
+      - Design
+
+  - term: Middleman
+    definition: >-
+      A Ruby-based static site generator that Slate uses as its underlying
+      build framework. Middleman handles template rendering, asset processing,
+      and static file generation. Slate extends Middleman with custom layouts
+      and helpers specific to API documentation.
+    tags:
+      - Ruby
+      - Build
+
+  - term: Static Site Generator (SSG)
+    definition: >-
+      A tool that pre-generates HTML files from source templates and content
+      at build time, producing a static website that requires no server-side
+      processing at runtime. Slate generates a complete documentation site
+      as static HTML, CSS, and JavaScript.
+    tags:
+      - Build
+      - Deployment
+
+  # Content Authoring
+  - term: Frontmatter
+    definition: >-
+      YAML configuration at the top of a Slate source file (index.html.md)
+      enclosed between triple-dash delimiters (---). Frontmatter controls
+      the page title, language tabs, table of contents entries, included files,
+      search behavior, code clipboard, and meta tags.
+    tags:
+      - Configuration
+      - Authoring
+
+  - term: Language Tab
+    definition: >-
+      A switchable code panel tab in Slate's right-side code column. Language
+      tabs allow documentation authors to show code samples in multiple programming
+      languages (e.g., cURL, Python, Ruby, JavaScript). Each tab corresponds to
+      a Rouge lexer identifier.
+    tags:
+      - Authoring
+      - Code Samples
+
+  - term: Include File
+    definition: >-
+      A partial Markdown file stored in Slate's source/includes/ directory that
+      is concatenated into the main documentation page. Includes allow documentation
+      to be organized into separate files (e.g., _errors.md, _authentication.md)
+      that are listed in the frontmatter includes array.
+    tags:
+      - Authoring
+      - Organization
+
+  - term: TOC (Table of Contents)
+    definition: >-
+      The navigation sidebar in Slate generated automatically from Markdown
+      headings (# H1, ## H2, ### H3) in the documentation source. Clicking
+      TOC entries scrolls the center panel to the corresponding section.
+    tags:
+      - Navigation
+      - Layout
+
+  - term: TOC Footer
+    definition: >-
+      HTML links or text displayed at the bottom of Slate's navigation sidebar,
+      configured via the toc_footers array in frontmatter. Commonly used for
+      links to sign up for API keys or attribution to Slate.
+    tags:
+      - Navigation
+      - Configuration
+
+  # Code Highlighting
+  - term: Rouge
+    definition: >-
+      A Ruby-based syntax highlighter used by Slate to add color to code
+      samples. Rouge supports over 100 programming languages and provides
+      the lexer identifiers used in Slate's language_tabs configuration.
+    tags:
+      - Syntax Highlighting
+      - Ruby
+
+  - term: Syntax Highlighting Theme
+    definition: >-
+      The color scheme applied to code blocks in Slate's right panel.
+      Configurable via the highlight_theme frontmatter key; Slate ships with
+      the monokai_sublime theme by default.
+    tags:
+      - Syntax Highlighting
+      - Design
+
+  # Deployment
+  - term: GitHub Pages
+    definition: >-
+      A free static hosting service from GitHub used by many Slate documentation
+      sites. Slate includes a deploy script (deploy.sh) that pushes the built
+      site to a repository's gh-pages branch for GitHub Pages hosting.
+    tags:
+      - Deployment
+      - Hosting
+
+  - term: Docker Image
+    definition: >-
+      An official Slate Docker image (slatedocs/slate) available on Docker Hub
+      that packages the Slate Ruby environment, enabling documentation builds
+      without a local Ruby installation.
+    tags:
+      - Docker
+      - Deployment
+
+  - term: Bundler
+    definition: >-
+      The Ruby dependency management tool used to install and manage Slate's
+      gem dependencies defined in Gemfile. Required for running Slate natively
+      outside of Docker.
+    tags:
+      - Ruby
+      - Build
+
+  # Configuration
+  - term: search
+    definition: >-
+      A boolean frontmatter option in Slate that enables full-text search
+      functionality in the documentation sidebar. When true, a search box
+      appears above the table of contents allowing users to search all
+      documentation content.
+    tags:
+      - Configuration
+      - Search
+
+  - term: code_clipboard
+    definition: >-
+      A boolean frontmatter option in Slate that adds copy-to-clipboard buttons
+      on all code sample blocks in the right panel, improving the developer
+      experience for copying API examples.
+    tags:
+      - Configuration
+      - UX
+
+  - term: meta
+    definition: >-
+      An array of HTML meta tag objects in Slate's frontmatter, injected into
+      the documentation page head element for SEO and social media sharing.
+      Each entry has name and content properties.
+    tags:
+      - Configuration
+      - SEO
+
+  # Project History
+  - term: Slate in the Wild
+    definition: >-
+      A community-maintained wiki page listing organizations that use Slate
+      for their API documentation. Notable users have included NASA, Sony,
+      Best Buy, Clearbit, Dwolla, WooCommerce, and many API-first companies.
+    tags:
+      - Community
+      - Adoption
+
+  - term: slatedocs
+    definition: >-
+      The GitHub organization that maintains the official Slate repository
+      at github.com/slatedocs/slate. Slate was created by Robert Lord at
+      TripIt in 2013 and later transferred to community maintenance under
+      the slatedocs organization.
+    tags:
+      - Community
+      - Governance
