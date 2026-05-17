@@ -20,7 +20,7 @@ apis:
       - url: json-schema/slate-frontmatter-schema.json
         type: JSONSchema
       - url: json-ld/slate-context.jsonld
-        type: JSON-LD
+        type: JSONLD
       - url: json-structure/slate-frontmatter-structure.json
         type: JSONStructure
       - url: examples/slate-frontmatter-example.json
@@ -114,7 +114,7 @@ common:
   - name: Slate Changelog
     description: 'null'
     url: https://github.com/slatedocs/slate/blob/main/CHANGELOG.md
-    type: Changelog
+    type: ChangeLog
   - name: Slate Frontmatter JSON Schema
     description: JSON Schema for Slate frontmatter configuration
     url: json-schema/slate-frontmatter-schema.json
@@ -122,7 +122,7 @@ common:
   - name: Slate JSON-LD Context
     description: JSON-LD context for Slate documentation entities
     url: json-ld/slate-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - name: Slate Frontmatter Structure
     description: JSON Structure for Slate frontmatter fields
     url: json-structure/slate-frontmatter-structure.json
