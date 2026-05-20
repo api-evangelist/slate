@@ -63,6 +63,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/slate-magazine
   - name: Slate GitHub Repository
     description: 'null'
     url: https://github.com/slatedocs/slate
